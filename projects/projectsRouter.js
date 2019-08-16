@@ -27,6 +27,11 @@ router.get('/', async (req, res) => {
 
 router.post('/', async (req, res) => {
     const projectData = req.body;
+
+    if(!projectData.completed) {
+        projectData.completed = false
+    }
+    console.log(projectData)
   
     try {
       const project = await Projects.addProjects(projectData);
