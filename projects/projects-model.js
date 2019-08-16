@@ -32,12 +32,12 @@ function getProjectById(id) {
     //     .innerJoin('project_resources as pr','p.id','pr.id')
     //     .where('p.id = 1', id)
 
-    return db.select().from('projects as p').from('resources as r')
-        .innerJoin('task as t','t.project_id','p.id')
-        .innerJoin('project_resources as pr','p.id','pr.id')
-        .where('p.id = 1', id)
+    // return db.select().from('projects as p').from('resources as r')
+    //     .innerJoin('task as t','t.project_id','p.id')
+    //     .innerJoin('project_resources as pr','p.id','pr.id')
+    //     .where('p.id = 1', id)
 
-    // return db('projects')
-    // .where('id', id).first()
+    return db('projects')
+    .where('id', id).first()
 
 }
