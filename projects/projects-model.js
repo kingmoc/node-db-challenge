@@ -12,8 +12,6 @@ function getProjects() {
 
 function addProjects(project) {
 
-    console.log(project)
-
     return db('projects')
         .insert(project)
 }
