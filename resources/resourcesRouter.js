@@ -10,7 +10,7 @@ router.get('/', async (req, res) => {
 
       res.json(resources);
     } catch (err) {
-      res.status(500).json({ message: 'Failed to get schemes' });
+      res.status(500).json({ message: 'Failed to get resources' });
     }
   });
 
@@ -21,7 +21,7 @@ router.post('/', async (req, res) => {
       const resource = await Resources.addResources(resourceData);
       res.status(201).json(resource);
     } catch (err) {
-      res.status(500).json({ message: 'Failed to create new scheme' });
+      res.status(500).json({ message: 'Failed to create new resource' });
     }
   });
 

@@ -21,9 +21,20 @@ router.get('/', async (req, res) => {
 
       res.json(nprojects);
     } catch (err) {
-      res.status(500).json({ message: 'Failed to get schemes' });
+      res.status(500).json({ message: 'Failed to get projects' });
     }
   });
+
+router.get('/:id', async (req, res) => {
+    const projectId = req.params.id;
+  
+    try {
+      const project = await Projects.getProjectById(projectId);
+      res.status(201).json(project);
+    } catch (err) {
+      res.status(500).json({ message: 'Failed to get Project' });
+    }
+  })
 
 router.post('/', async (req, res) => {
     const projectData = req.body;
@@ -37,7 +48,7 @@ router.post('/', async (req, res) => {
       const project = await Projects.addProjects(projectData);
       res.status(201).json(project);
     } catch (err) {
-      res.status(500).json({ message: 'Failed to create new scheme' });
+      res.status(500).json({ message: 'Failed to create new project' });
     }
   });
 
